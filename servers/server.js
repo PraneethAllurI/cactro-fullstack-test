@@ -18,6 +18,6 @@ mongoose.connect('mongodb+srv://hellinokayu:BXvQ88wBjLI3MKEE@cluster0.pesch.mong
 
 // Server setup
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => { 
+app.listen(PORT, () => {  
   console.log(`Server running on port ${PORT}`);
-}); 
+});  
