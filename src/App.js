@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (poll) {
-        axios.get(`http://localhost:4000/api/polls/${poll._id}`)
+        axios.get(`https://deploy-cactro-apii.vercel.app/api/polls/${poll._id}`)
           .then((res) => setPoll(res.data))
           .catch((err) => console.log(err));
       }
@@ -22,13 +22,13 @@ function App() {
     if (newPoll.options.length < 2) {
       return alert('Select at least 2 options');
     }
-    axios.post('http://localhost:4000/api/polls', newPoll)
+    axios.post('https://deploy-cactro-apii.vercel.app/api/polls', newPoll)
       .then((res) => {
         setPoll(res.data);
         setNewPoll({ question: '', options: [] });
       })
       .catch((err) => console.log(err));
-  };
+  }; 
 
   const createOptions = () => {
     if (pollOptions.trim()) {
@@ -38,7 +38,7 @@ function App() {
   };
 
   const vote = (optionIndex) => {
-    axios.post(`http://localhost:4000/api/polls/${poll._id}/vote`, { optionIndex })
+    axios.post(`https://deploy-cactro-apii.vercel.app/api/polls/${poll._id}/vote`, { optionIndex })
       .then((res) => setPoll(res.data))
       .catch((err) => console.log(err));
   };
